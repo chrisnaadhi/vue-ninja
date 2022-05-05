@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Let's Learn Vue 3</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <style>
+      body {
+        background: #eee;
+        max-width: 960px;
+        margin: 20px auto;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+
+      p,
+      h3,
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        list-style-type: none;
+        background: #fff;
+        margin: 20px auto;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      li.fav {
+        background: #ff9ed2;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello Vue!</h1>
+
+    <div id="app">
+      <!-- attribute binding -->
+      <a :href="url">You will go to Google</a>
+
+      <div v-if="showBooks">
+        <ul>
+          <li
+            v-for="book in books"
+            :class="{ fav: book.isFav }"
+            @click="toggleFav(book)"
+          >
+            <img :src="book.img" :alt="book.title" />
+            <h3>{{ book.title }}</h3>
+            <p>{{ book.author }}</p>
+          </li>
+        </ul>
+        <p>Your Favorite Books</p>
+        <ul>
+          <li v-if="filteredBooks.length > 0" v-for="book in filteredBooks">
+            {{ book.title }} by {{ book.author }}
+          </li>
+          <li v-else>You have no favorite books</li>
+        </ul>
+      </div>
+      <div v-else>
+        <p>Click the Button to see books</p>
+      </div>
+
+      <button @click="toggleBooks">
+        <span v-if="showBooks">Hide Books</span>
+        <span v-else>Show Books</span>
+      </button>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

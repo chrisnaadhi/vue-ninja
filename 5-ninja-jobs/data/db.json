@@ -1,0 +1,19 @@
+{
+  "jobs": [
+    {
+      "title": "Ninja UX Designer",
+      "id": 1,
+      "details": "Really Ninja-like Designer"
+    },
+    {
+      "title": "Ninja Web Developer",
+      "id": 2,
+      "details": "Multitasking Guy with fullstack caps"
+    },
+    {
+      "title": "Ninja Software Engineer",
+      "id": 3,
+      "details": "Backend stuff that look like a nerd"
+    }
+  ]
+}
